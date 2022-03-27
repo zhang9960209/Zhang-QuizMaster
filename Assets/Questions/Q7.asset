@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b612ae29c553dc4a84283c4cf5ad871, type: 3}
   m_Name: Q7
   m_EditorClassIdentifier: 
-  Question: 
+  Question: Who is the Yuheng of the Liyue Qixing?
+  strAnswers:
+  - Ganyu
+  - Uncle Tian
+  - Ningguang
+  - Keqing
+  correctAnsIndex: 3

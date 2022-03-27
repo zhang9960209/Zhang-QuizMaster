@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b612ae29c553dc4a84283c4cf5ad871, type: 3}
   m_Name: Q1
   m_EditorClassIdentifier: 
-  Question: 
+  Question: Which of these characters ISN'T obtained for free?
+  strAnswers:
+  - Xiangling
+  - Razor
+  - Barbara
+  - Kaeya
+  correctAnsIndex: 1

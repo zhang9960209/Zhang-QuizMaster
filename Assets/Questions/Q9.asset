@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b612ae29c553dc4a84283c4cf5ad871, type: 3}
   m_Name: Q9
   m_EditorClassIdentifier: 
-  Question: 
+  Question: Who is the 8th Harbinger?
+  strAnswers:
+  - Childe
+  - The Balladeer
+  - Dottore
+  - La Signora
+  correctAnsIndex: 3

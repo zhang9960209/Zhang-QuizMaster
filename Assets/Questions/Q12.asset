@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b612ae29c553dc4a84283c4cf5ad871, type: 3}
-  m_Name: Q2
+  m_Name: Q12
   m_EditorClassIdentifier: 
-  Question: When does the spiral abyss reset?
+  Question: Who runs the Komore Teahouse in Inazuma?
   strAnswers:
-  - Every month
-  - Every week
-  - Every three weeks
-  - Every two weeks
-  correctAnsIndex: 3
+  - Kozue
+  - Ayaka
+  - Taromaru
+  - Kokomi
+  correctAnsIndex: 2
