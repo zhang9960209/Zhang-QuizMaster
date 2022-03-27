@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float flTimeToAnswer = 20f;
     [SerializeField] float flTimeToReview = 10f;
 
-    bool blIsAnswering;
+    public bool blIsAnswering;
     float flTimerValue;
     public bool blLoadNext;
     public float flFillFraction;

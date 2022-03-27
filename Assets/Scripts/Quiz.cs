@@ -6,23 +6,58 @@ using UnityEngine.UI;
 
 public class Quiz : MonoBehaviour
 {
+    [Header("Questions")]
     [SerializeField] QSOs Questions;
     [SerializeField] TextMeshProUGUI qText;
+    
+    [Header("Answers")]
     [SerializeField] GameObject[] ansButtons;
-
     int intCorrectAnsIndex;
+    
+    [Header("Button Sprite")]
     [SerializeField] Sprite defaultAnsSprite;
     [SerializeField] Sprite correctAnsSprite;
 
+    [Header("Timer")]
+    [SerializeField] Image timerImg;
+    Timer timer;
+    bool blEarlyAnswered;
+    
+
     void Start()
     {
-        DisplayQuestion();
+        timer = FindObjectOfType<Timer>();
+        NextQuestion();
+        //DisplayQuestion();
         //DefaultButtonSprite();
     }
 
+    void Update()
+    {
+        timerImg.fillAmount = timer.flFillFraction;
+        if (timer.blLoadNext)
+        {
+            blEarlyAnswered = false;
+            NextQuestion();
+            timer.blLoadNext = false;
+        }
+
+        else if (!blEarlyAnswered && !timer.blIsAnswering)
+        {
+            DisplayAns(-1);
+            ButtonState(false);
+        }
+    }
     public void OnAnsSelected(int intIndex)
     {
-        Debug.Log("test");
+        blEarlyAnswered = true;
+        DisplayAns(intIndex);
+        ButtonState(false);
+        timer.CancelTimer();
+    }
+
+    void DisplayAns(int intIndex)
+    {
         Image buttonImage;
         if (intIndex == Questions.GetCorrectAnsIndex())
         {
@@ -32,17 +67,15 @@ public class Quiz : MonoBehaviour
         }
 
         else
-        { 
+        {
             intCorrectAnsIndex = Questions.GetCorrectAnsIndex();
             string strCorrectAns = Questions.GetAnswer(intCorrectAnsIndex);
-            qText.text = "Woops! The correct answer is \n" + strCorrectAns;
+            qText.text = "Woops! The correct answer is: " + strCorrectAns;
             buttonImage = ansButtons[intCorrectAnsIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnsSprite;
 
         }
-        ButtonState(false);
     }
-
     void NextQuestion()
     { 
         ButtonState(true);
