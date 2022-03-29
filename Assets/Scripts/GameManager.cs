@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    FirstScene firstScene;
     Quiz quiz;
     FinalScene finalScene;
 
     void Awake()
     {
+        firstScene = FindObjectOfType<FirstScene>();
         quiz = FindObjectOfType<Quiz>();
         finalScene = FindObjectOfType<FinalScene>();
     }
 
     void Start()
     {
+        
         quiz.gameObject.SetActive(true);
         finalScene.gameObject.SetActive(false);
     }
@@ -31,8 +34,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RePlay()
+    public void RePlay(string SceneName)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneName);
     }
 }
